@@ -60,10 +60,10 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-                <dependency>
+                <dependency> <!--aqui agrego las dependecias de la presentacion semana 2-->
                     <groupId>org.webjars</groupId>
                     <artifactId>bootstrap</artifactId>
-                    <version> 5.3.7</version>
+                    <version>5.3.7</version>
                 </dependency>
                 <dependency>
                     <groupId>org.webjars</groupId>
@@ -84,7 +84,7 @@
                     <groupId>org.webjars</groupId>
                     <artifactId>webjars-locator</artifactId>
                     <version>0.52</version>
-                </dependency>
+                </dependency> <!--aqui termina lo de presetnacion 2-->
 	</dependencies>
 
 	<build>
