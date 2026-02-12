@@ -77,12 +77,71 @@
                                             <td><img th:src="@{${c.rutaImagen}}" alt="noData" height="75"/></td>
                                             <td th:text="${c.activo} ? 'Activa':'Inactiva'"></td>
                                             <td>
-                                                <button type="button" class="btn btn-danger"
+                                           
+                                                   <!-- BOTÓN ELIMINAR -->
+                                                   <button type="button" class="btn btn-danger"
+                                                           data-bs-toggle="modal"
+                                                           th:data-bs-target="'#confirmModal' + ${c.idCategoria}">
+                                                       <i class="fa-solid fa-trash"></i> [[#{accion.eliminar}]]
+                                                   </button>
+
+                                                   <!-- MODAL INDIVIDUAL -->
+                                                   <div class="modal fade"
+                                                        th:id="'confirmModal' + ${c.idCategoria}"
+                                                        tabindex="-1">
+
+                                                       <div class="modal-dialog">
+                                                           <div class="modal-content">
+
+                                                               <form th:action="@{/categoria/eliminar}" method="post">
+                                                                   <input type="hidden"
+                                                                          name="idCategoria"
+                                                                          th:value="${c.idCategoria}"/>
+
+                                                                   <div class="modal-header bg-warning text-white">
+                                                                       <h5 class="modal-title">
+                                                                           Confirmar eliminación
+                                                                       </h5>
+                                                                       <button type="button" class="btn-close"
+                                                                               data-bs-dismiss="modal"></button>
+                                                                   </div>
+
+                                                                   <div class="modal-body">
+                                                                       ¿Desea eliminar la categoría
+                                                                       <strong th:text="${c.descripcion}"></strong>?
+                                                                   </div>
+
+                                                                   <div class="modal-footer">
+                                                                       <button type="submit" class="btn btn-danger">
+                                                                           Eliminar
+                                                                       </button>
+                                                                       <button type="button"
+                                                                               class="btn btn-secondary"
+                                                                               data-bs-dismiss="modal">
+                                                                           Cancelar
+                                                                       </button>
+                                                                   </div>
+
+                                                               </form>
+
+                                                           </div>
+                                                       </div>
+                                                   </div>
+
+                                                   <!-- BOTÓN EDITAR -->
+                                                   <a th:href="@{/categoria/modificar/}+${c.idCategoria}"
+                                                      class="btn btn-warning">
+                                                       <i class="fas fa-pencil-alt"></i> [[#{accion.actualizar}]]
+                                                   </a>
+
+ 
+                                            
+                                               <!-- <button type="button" class="btn btn-danger"
                                                         data-bs-toggle="modal" data-bs-target="#confirmModal"
                                                         th:data-bs-id="${c.idCategoria}"
                                                         th:data-bs-descripcion="${c.descripcion}">
                                                     <i class="fa-solid fa-trash"></i> [[#{accion.eliminar}]]
-                                                </button>                                           
+                                                </button>  -->                                         
                                                 <a th:href="@{/categoria/modificar/}+${c.idCategoria}" class="btn btn-warning">
                                                     <i class="fas fa-pencil-alt"></i> [[#{accion.actualizar}]]
                                                 </a>                                                
@@ -201,6 +260,8 @@
                 </div>
             </div>
         </section>
+        
+
 
     </body>
 </html>
