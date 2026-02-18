@@ -4,10 +4,14 @@
  */
 package Tienda_IgnacioB.demo.repository;
 
+import Tienda_IgnacioB.demo.domain.Producto;
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 /**
  *
  * @author nacho
  */
-public interface ProductoRepository {
+public interface ProductoRepository extends JpaRepository<Producto, Integer> {
+    public List<Producto> findByActivoTrue();
     
 }

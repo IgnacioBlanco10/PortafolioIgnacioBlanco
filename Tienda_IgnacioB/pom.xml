@@ -103,6 +103,11 @@
                     <artifactId>firebase-admin</artifactId>
                     <version>9.5.0</version>
                 </dependency> <!-- Aquí termina ppt4-->
+                <dependency> <!-- Aquí incia lo de ppt 5 -->
+                    <groupId>org.hibernate.validator</groupId>
+                    <artifactId>hibernate-validator</artifactId>
+                   <!-- <scope>runtime</scope> tuve que comentarla para que funcione --> <!-- Aquí termina ppt5 -->
+                </dependency>
 	</dependencies>
 
 	<build>
