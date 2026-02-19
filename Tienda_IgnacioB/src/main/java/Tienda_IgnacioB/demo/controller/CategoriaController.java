@@ -77,7 +77,7 @@ public class CategoriaController {
             redirectAttributes.addFlashAttribute("error", messageSource.getMessage("categoria.error01", null, Locale.getDefault()));
             return "redirect:/categoria/listado";
         }
-        model.addAttribute("categoria", categoriaOpt.get());
+        model.addAttribute("categoria", categoriaOpt.get()); //me ayuda a conectar el html con el código
         return "/categoria/modifica";
     }
 }
