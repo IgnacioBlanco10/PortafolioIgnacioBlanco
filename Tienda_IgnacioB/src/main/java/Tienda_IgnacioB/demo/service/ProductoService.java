@@ -14,7 +14,6 @@ import org.springframework.dao.DataIntegrityViolationException; //lo añadi en s
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile; //lo añadi en semana 4 */
-
 import Tienda_IgnacioB.demo.domain.Producto;
 import Tienda_IgnacioB.demo.repository.ProductoRepository;
 import java.io.IOException;
@@ -32,7 +31,7 @@ public class ProductoService {
     private final FirebaseStorageService firebaseStorageService;
 
     public ProductoService(ProductoRepository productoRepository,
-                           FirebaseStorageService firebaseStorageService) {
+            FirebaseStorageService firebaseStorageService) {
         this.productoRepository = productoRepository;
         this.firebaseStorageService = firebaseStorageService;
     }
@@ -86,6 +85,19 @@ public class ProductoService {
                     "No se puede eliminar el producto. Tiene datos asociados.", e);
         }
     }
+
+    @Transactional(readOnly = true)
+    public List<Producto> consultaDerivada(double precioInf, double precioSup) {
+        return productoRepository.findByPrecioBetweenOrderByPrecioAsc(precioInf, precioSup);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Producto> consultaJPQL(double precioInf, double precioSup) {
+        return productoRepository.consultaJPQL(precioInf, precioSup);
+    }
+    
+    @Transactional(readOnly = true)
+    public List<Producto> consultaSQL (double precioInf, double precioSup) {
+        return productoRepository.consultaSQL(precioInf, precioSup);
+    }
 }
-
-
