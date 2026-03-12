@@ -108,6 +108,14 @@
                     <artifactId>hibernate-validator</artifactId>
                    <!-- <scope>runtime</scope> tuve que comentarla para que funcione --> <!-- Aquí termina ppt5 -->
                 </dependency>
+                <dependency> <!-- Aquí empieza lo añadido en semana 9-->
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-security</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.thymeleaf.extras</groupId>
+                    <artifactId>thymeleaf-extras-springsecurity6</artifactId>
+                </dependency> <!-- Aquí termina semana 9 -->
 	</dependencies>
 
 	<build>
