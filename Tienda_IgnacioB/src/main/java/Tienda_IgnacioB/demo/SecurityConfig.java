@@ -4,8 +4,12 @@
  */
 package Tienda_IgnacioB.demo;
 
+import Tienda_IgnacioB.demo.domain.Ruta; //semana 10
+import org.springframework.beans.factory.annotation.Autowired; // semana 10
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy; //añadi en semana 10
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder; // semana 10
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -36,7 +40,7 @@ public class SecurityConfig {
         "/producto/**", "/categoria/**", "/usuario/**"
     };
    
-    @Bean
+   /* @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(request -> request
                 .requestMatchers(PUBLIC_URLS).permitAll()
@@ -64,31 +68,42 @@ public class SecurityConfig {
         );
         return http.build();
     }
+    */
 
-     @Bean
+    @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    //Este método será reemplazado la siguiente semana
-    @Bean
-    public UserDetailsService users(PasswordEncoder passwordEncoder) {
-        UserDetails juan = User.builder()
-                .username("juan")
-                .password(passwordEncoder.encode("123"))
-                .roles("ADMIN")
-                .build();
-        UserDetails rebeca = User.builder()
-                .username("rebeca")
-                .password(passwordEncoder.encode("456"))
-                .roles("VENDEDOR")
-                .build();
-        UserDetails pedro = User.builder()
-                .username("pedro")
-                .password(passwordEncoder.encode("789"))
-                .roles("USUARIO") // Consistent con tu configuración
-                .build();
-        return new InMemoryUserDetailsManager(juan, rebeca, pedro);
+//Este método será reemplazado la siguiente semana
+// @Bean
+// public UserDetailsService users(PasswordEncoder passwordEncoder) {
+//     UserDetails juan = User.builder()
+//             .username("juan")
+//             .password(passwordEncoder.encode("123"))
+//             .roles("ADMIN")
+//             .build();
+//
+//     UserDetails rebeca = User.builder()
+//             .username("rebeca")
+//             .password(passwordEncoder.encode("456"))
+//             .roles("VENDEDOR")
+//             .build();
+//
+//     UserDetails pedro = User.builder()
+//             .username("pedro")
+//             .password(passwordEncoder.encode("789"))
+//             .roles("USUARIO") // Consistent con tu configuración
+//             .build();
+//
+//     return new InMemoryUserDetailsManager(juan, rebeca, pedro);
+// }
+    @Autowired
+    public void configurerGlobal(AuthenticationManagerBuilder build,
+            @Lazy PasswordEncoder passwordEncoder,
+            @Lazy UserDetailsService userDetailsService) throws Exception {
+
+        build.userDetailsService(userDetailsService)
+                .passwordEncoder(passwordEncoder);
     }
-    
 }

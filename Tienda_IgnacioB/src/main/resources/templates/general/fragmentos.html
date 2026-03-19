@@ -114,8 +114,9 @@
                         <!-- Usuario autenticado -->
                         <ul class="navbar-nav" sec:authorize="isAuthenticated()">
                             <li class="nav-item my-auto">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-user"></i>
+                                <a class="nav-link"> <!--href="#"--> 
+                                    <img th:src="@{${session.imagenUsuario}}"
+                                         alt="your image" height="40" class="rounded-circle"/>
                                     <span class="ms-1" sec:authentication="name">Usuario</span>
                                 </a>
                             </li>

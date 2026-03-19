@@ -4,14 +4,14 @@
  */
 package Tienda_IgnacioB.demo.repository;
 
-import Tienda_IgnacioB.demo.domain.Ruta;
-import java.util.List;
+import Tienda_IgnacioB.demo.domain.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
 
 /**
  *
  * @author nacho
  */
-public interface RutaRepository extends JpaRepository<Ruta, Integer> {
-    List<Ruta> findAllByOrderByRequiereRolAsc();
+public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
+    Optional<Usuario> findByUsernameAndActivoTrue(String username);
 }
