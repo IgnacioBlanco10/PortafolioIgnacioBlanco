@@ -4,10 +4,16 @@
  */
 package Tienda_IgnacioB.demo.repository;
 
+import Tienda_IgnacioB.demo.domain.Rol;
+import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 /**
  *
  * @author nacho
  */
-public interface RolRepository {
+public interface RolRepository extends JpaRepository<Rol, Integer> {
+    
+    public Optional<Rol> findByRol(String rol);
     
 }
