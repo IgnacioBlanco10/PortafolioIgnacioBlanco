@@ -1,78 +1,38 @@
-*  ⁠{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+.card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    z-index: 1;
+}
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* HEADER */
-.header {
-    background-color: #6a6cff;
-    height: 80px;
-    display: flex;
-    align-items: center;
+@media print {
+    /* 1. La regla principal: fija la cabecera en cada página */
+    thead {
+        display: table-header-group;
+    }
+
+    /* 2. Regla de compatibilidad (opcional pero recomendada) */
+    tr {
+        page-break-inside: avoid;
+    }
+    
+    /* 3. Asegura que la tabla no tenga márgenes extraños que rompan el thead */
+    table {
+        margin: 0 !important;
+    }
+    
+    /* [Opcional] Si está usando Bootstrap/cards para la tabla, elimine los bordes*/
+    .card, .card-body {
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Oculta elementos de navegación, como se explicó antes */
+    .d-print-none, .navbar, .footer {
+        display: none !important;
+    }
 }
 
-.nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
-}
 
-.logo_nav-link {
-    color: white;
-    font-size: 28px;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.nav-menu {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
-
-.nav-menu-link {
-    background-color: green;
-    color: white;
-    padding: 8px 14px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* LAYOUT */
-.layout {
-    display: flex;
-    min-height: calc(100vh - 120px);
-}
-
-/* SIDEBAR */
-.sidebar {
-    width: 220px;
-    background-color: #fde7c7;
-}
-
-/* CONTENT */
-.content {
-    flex: 1;
-    background-color: #e08a9a;
-    padding: 30px;
-}
-
-.content h2 {
-    font-size: 22px;
-}
-
-/* FOOTER */
-.footer {
-    height: 40px;
-    background-color: black;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-}
