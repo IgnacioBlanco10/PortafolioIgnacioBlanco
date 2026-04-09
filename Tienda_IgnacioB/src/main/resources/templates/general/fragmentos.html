@@ -8,24 +8,24 @@
         <title>TechShop</title>
         <meta charset="UTF-8">
 
-        <!-- Favicons -->
-        <link rel="icon" type="image/png" sizes="16x16" th:href="@{/fav/favicon-16x16.png}"/>
-        <link rel="icon" type="image/png" sizes="32x32" th:href="@{/fav/favicon-32x32.png}"/>
-        <link rel="icon" type="image/png" sizes="96x96" th:href="@{/fav/favicon-96x96.png}"/>
-        <link rel="icon" type="image/png" sizes="256x256" th:href="@{/fav/favicon-256x256.png}"/>
+            <!-- Favicons -->
+            <link rel="icon" type="image/png" sizes="16x16" th:href="@{/fav/favicon-16x16.png}"/>
+            <link rel="icon" type="image/png" sizes="32x32" th:href="@{/fav/favicon-32x32.png}"/>
+            <link rel="icon" type="image/png" sizes="96x96" th:href="@{/fav/favicon-96x96.png}"/>
+            <link rel="icon" type="image/png" sizes="256x256" th:href="@{/fav/favicon-256x256.png}"/>
 
-        <!-- CSS -->
-        <link th:href="@{/webjars/bootstrap/5.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
-        <link th:href="@{/webjars/font-awesome/7.0.0/css/all.min.css}" rel="stylesheet"/>
+            <!-- CSS -->
+            <link th:href="@{/webjars/bootstrap/5.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+            <link th:href="@{/webjars/font-awesome/7.0.0/css/all.min.css}" rel="stylesheet"/>
 
-        <!-- JS -->
-        <script th:src="@{/js/rutinas.js}"></script>
-        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-        <script th:src="@{/webjars/bootstrap/5.3.7/js/bootstrap.bundle.min.js}"></script>
-        <link th:href="@{/css/estilos.css}" rel="stylesheet"/>
-        <meta name="_csrf" th:content="${_csrf.token}"/>
-        <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+            <!-- JS -->
+            <script th:src="@{/js/rutinas.js}"></script>
+            <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+            <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+            <script th:src="@{/webjars/bootstrap/5.3.7/js/bootstrap.bundle.min.js}"></script>
+            <link th:href="@{/css/estilos.css}" rel="stylesheet"/>
+            <meta name="_csrf" th:content="${_csrf.token}"/>
+            <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     </head>
 
     <body>
@@ -73,7 +73,7 @@
                                                 <a class="dropdown-item" th:href="@{/role/listado}">[[#{plantilla.troles}]]</a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" th:href="@{/usuario_role/asignar}">[[#{plantilla.permisos}]]</a>
+                                                <a class="dropdown-item" th:href="@{/usuario_rol/mantenimiento}">[[#{plantilla.permisos}]]</a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" th:href="@{/ruta/listado}">[[#{plantilla.rutas}]]</a>
